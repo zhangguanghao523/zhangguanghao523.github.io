@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guanghao Zhang — Researcher</title>
+  <meta name="description" content="Guanghao Zhang's academic homepage — Multimodal Video Understanding, LLM Reasoning, Knowledge Distillation.">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Outfit:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --paper: #fdfbf7;
+      --ink: #1c1917;
+      --ink-soft: #44403c;
+      --ink-muted: #78716c;
+      --coral: #e85d3a;
+      --coral-light: #fef2ee;
+      --navy: #1e3a5f;
+      --teal: #0d9488;
+      --gold: #d97706;
+      --border: #e7e5e4;
+      --card: #ffffff;
+      --shadow: 0 1px 3px rgba(28,25,23,0.04), 0 6px 24px rgba(28,25,23,0.06);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 40px 100px;
+    }
+
+    /* ═══ Hero ═══ */
+    .hero {
+      padding: 80px 0 60px;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .avatar-wrap {
+      position: sticky;
+      top: 40px;
+    }
+
+    .avatar {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-body h1 {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+      font-size: 40px;
+      font-weight: 700;
+      letter-spacing: -0.8px;
+      line-height: 1.15;
+      margin-bottom: 18px;
+      color: var(--ink);
+    }
+
+    .hero-body .bio {
+      font-size: 16.5px;
+      line-height: 1.85;
+      color: var(--ink-soft);
+      max-width: 580px;
+    }
+
+    .hero-body .bio a {
+      color: var(--navy);
+      text-decoration: none;
+      border-bottom: 1.5px solid rgba(30,58,95,0.2);
+      transition: border-color 0.2s;
+    }
+    .hero-body .bio a:hover { border-bottom-color: var(--coral); }
+    .hero-body .bio b { color: var(--ink); font-weight: 600; }
+
+    /* ── Connect ── */
+    .connect-box {
+      margin-top: 28px;
+      padding: 20px 24px;
+      background: var(--coral-light);
+      border-radius: 14px;
+      border: none;
+      max-width: 580px;
+    }
+
+    .connect-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--coral);
+      margin-bottom: 4px;
+    }
+
+    .connect-text {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink-soft);
+      margin-bottom: 14px;
+    }
+
+    .connect-text .kw-career { color: var(--coral); font-weight: 600; }
+    .connect-text .kw-tech { color: var(--navy); font-weight: 600; }
+    .connect-text .kw-research { color: var(--teal); font-weight: 600; }
+
+    .connect-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .connect-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink-soft);
+      text-decoration: none;
+      padding: 7px 16px;
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
+      background: var(--card);
+      transition: all 0.2s ease;
+    }
+    .connect-links a:hover {
+      border-color: var(--coral);
+      color: var(--coral);
+      box-shadow: 0 2px 8px rgba(232,93,58,0.1);
+    }
+    .connect-links a svg { width: 14px; height: 14px; }
+
+    /* ═══ Section ═══ */
+    .section { padding-top: 56px; }
+
+    .section-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--coral);
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 28px;
+      color: var(--ink);
+    }
+
+    .section-divider {
+      border: 0;
+      height: 1px;
+      background: linear-gradient(to right, var(--border), transparent);
+      margin-top: 56px;
+    }
+
+    /* ═══ News ═══ */
+    .news-list { list-style: none; }
+
+    .news-item {
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      padding: 11px 0;
+      font-size: 15.5px;
+    }
+
+    .news-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      color: var(--ink-muted);
+      flex-shrink: 0;
+      width: 64px;
+    }
+
+    .news-text { color: var(--ink-soft); }
+    .news-text a {
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .news-text a:hover { color: var(--coral); }
+    .news-text b { color: var(--ink); }
+
+    .new-badge {
+      display: inline-block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--teal);
+      background: rgba(13,148,136,0.08);
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 8px;
+    }
+
+    /* ═══ Publications ═══ */
+    .pub-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .pub-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--coral);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .pub-card:hover {
+      box-shadow: var(--shadow);
+      border-color: rgba(232,93,58,0.2);
+    }
+    .pub-card:hover::before { opacity: 1; }
+
+    .pub-body {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    .pub-figure-side {
+      width: 200px;
+      min-width: 200px;
+      flex-shrink: 0;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .pub-figure-side img { width: 100%; display: block; }
+    .pub-figure-side img + img { margin-top: 4px; }
+
+    .pub-info { flex: 1; min-width: 0; }
+
+    .pub-venue {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--coral);
+      margin-bottom: 8px;
+    }
+
+    .pub-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+
+    .pub-authors {
+      font-size: 14px;
+      color: var(--ink-muted);
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+    .pub-authors .me {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .pub-desc {
+      font-size: 14.5px;
+      color: var(--ink-soft);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .pub-links { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    .pub-link {
+      font-size: 13px;
+      font-weight: 500;
+      padding: 5px 14px;
+      border-radius: 7px;
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      color: var(--ink-muted);
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .pub-link:hover {
+      color: var(--coral);
+      border-color: var(--coral);
+      background: var(--coral-light);
+    }
+    .pub-link .gh-icon { width: 13px; height: 13px; }
+
+    /* ═══ Experience ═══ */
+    .exp-item {
+      display: flex;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.03);
+    }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-item > * { flex: 1; }
+
+    .exp-logo {
+      flex: 0 0 130px;
+      height: 52px;
+      border-radius: 10px;
+      border: 1.5px solid var(--border);
+      background: var(--card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 8px 16px;
+    }
+
+    .exp-logo img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .exp-org {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+      text-align: center;
+    }
+    .exp-org a { color: var(--ink); text-decoration: none; }
+    .exp-org a:hover { color: var(--coral); }
+
+    .exp-role {
+      font-size: 15px;
+      color: var(--ink-soft);
+      text-align: center;
+    }
+
+    .exp-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 14px;
+      color: var(--ink-muted);
+      text-align: right;
+    }
+
+    /* ═══ Academic Services ═══ */
+    .service-list {
+      list-style: none;
+      font-size: 15.5px;
+      color: var(--ink-soft);
+      line-height: 2.2;
+    }
+    .service-list .service-label {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    /* ═══ Footer ═══ */
+    .footer {
+      margin-top: 80px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 12px;
+      color: var(--ink-muted);
+    }
+    .footer a { color: var(--ink-muted); text-decoration: none; }
+    .footer a:hover { color: var(--coral); }
+
+    /* ═══ Responsive ═══ */
+    @media (max-width: 720px) {
+      .page { padding: 0 20px 60px; }
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 48px 0 36px;
+        text-align: center;
+      }
+      .avatar-wrap { position: static; display: flex; justify-content: center; }
+      .avatar { width: 140px; height: 140px; border-radius: 50%; }
+      .hero-body h1 { font-size: 34px; }
+      .connect-box { max-width: 100%; }
+      .connect-links { justify-content: center; }
+      .news-item { flex-direction: column; gap: 2px; }
+      .exp-item { flex-wrap: wrap; gap: 10px; }
+      .exp-logo { flex: 0 0 90px; height: 40px; padding: 6px 10px; }
+      .exp-org, .exp-role, .exp-date { text-align: left; font-size: 14px; }
+      .pub-body { flex-direction: column; }
+      .pub-figure-side { width: 100%; min-width: 0; }
+    }
+
+    /* ═══ Animation ═══ */
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero { animation: slideIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    .section { animation: slideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    .section:nth-of-type(1) { animation-delay: 0.08s; }
+    .section:nth-of-type(2) { animation-delay: 0.14s; }
+    .section:nth-of-type(3) { animation-delay: 0.2s; }
+    .section:nth-of-type(4) { animation-delay: 0.26s; }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- ═══ Hero ═══ -->
+    <header class="hero">
+      <div class="avatar-wrap">
+        <img class="avatar" src="assets/avatar.jpg" alt="Guanghao Zhang">
+      </div>
+      <div class="hero-body">
+        <h1>Guanghao Zhang（张广昊）</h1>
+        <p class="bio">
+          I am a researcher at <a href="https://www.alibaba.com" target="_blank">Alibaba Group</a>.
+          I received my M.S. degree from the <a href="http://www.ia.cas.cn/" target="_blank">Institute of Automation, Chinese Academy of Sciences (CASIA)</a> in 2022.
+          My research interests include <b>multimodal large language models</b>, <b>video understanding</b>, <b>reasoning &amp; retrieval</b>, and <b>knowledge distillation</b>.
+        </p>
+
+        <div class="connect-box">
+          <div class="connect-title">🚀 Let's connect!</div>
+          <div class="connect-text">Open to chats on <span class="kw-career">career</span>, <span class="kw-tech">tech</span>, or <span class="kw-research">research</span>.</div>
+          <div class="connect-links">
+            <a href="mailto:guanghhaozhang@gmail.com" onclick="navigator.clipboard.writeText('guanghhaozhang@gmail.com');this.querySelector('.email-tip').textContent='Copied!';setTimeout(()=>{this.querySelector('.email-tip').textContent='';},1500);event.preventDefault();">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              Email <span class="email-tip" style="font-size:11px;color:var(--teal);margin-left:2px;"></span>
+            </a>
+            <a href="https://scholar.google.com/citations?user=uR1mcnYAAAAJ" target="_blank">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
+              Scholar
+            </a>
+            <a href="https://github.com/zhangguanghao523" target="_blank">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <hr class="section-divider">
+
+    <!-- ═══ News ═══ -->
+    <section class="section">
+      <div class="section-label">Latest</div>
+      <h2 class="section-title">News</h2>
+      <ul class="news-list">
+        <li class="news-item">
+          <span class="news-date">2026.05</span>
+          <span class="news-text">
+            🔥 <a href="https://arxiv.org/abs/2605.26680">DynFrame</a> is now available on arXiv. Code and dataset are open-sourced.
+            <span class="new-badge">New</span>
+          </span>
+        </li>
+        <li class="news-item">
+          <span class="news-date">2026.02</span>
+          <span class="news-text">
+            🎉 <a href="https://arxiv.org/abs/2503.05255">CMMCoT</a> is accepted by <b>AAAI 2026</b>.
+          </span>
+        </li>
+        <li class="news-item">
+          <span class="news-date">2025.01</span>
+          <span class="news-text">
+            🎉 Two papers accepted by <b>ICLR 2025</b>: <a href="https://arxiv.org/abs/2503.00540">ReKV</a> and <a href="https://arxiv.org/abs/2408.15881">LLaVA-MoD</a>.
+          </span>
+        </li>
+      </ul>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══ Publications ═══ -->
+    <section class="section">
+      <div class="section-label">Research</div>
+      <h2 class="section-title">Selected Publications</h2>
+
+      <!-- DynFrame -->
+      <div class="pub-card">
+        <div class="pub-body">
+          <div class="pub-figure-side">
+            <img src="assets/dynframe.png" alt="DynFrame overview" loading="lazy">
+          </div>
+          <div class="pub-info">
+            <div class="pub-venue">arXiv Preprint, 2026</div>
+            <div class="pub-title">DynFrame: Adaptive Reasoning-Driven Multimodal Framework with Dynamic Frame Augmentation for Complex Video Understanding</div>
+            <div class="pub-authors">
+              Peng Zhang*, <span class="me">Guanghao Zhang*</span>, Wanggui He, Longxiang Zhang, Mushui Liu, Yan Xia, Zhenhao Peng, Weilong Dai, Jinlong Liu, Haobing Tang, Le Zhang, Hao Jiang, Pipei Huang
+            </div>
+            <div class="pub-desc">An end-to-end framework that emits temporal span and sampling density as native tokens, enabling learnable frame retrieval within a single autoregressive reasoning pass. SD-GRPO provides segment-specific credit assignment for retrieval and answer generation.</div>
+            <div class="pub-links">
+              <a class="pub-link" href="https://arxiv.org/abs/2605.26680" target="_blank">📄 Paper</a>
+              <a class="pub-link" href="https://github.com/zhangguanghao523/DynFrame" target="_blank"><svg class="gh-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> Code</a>
+              <a class="pub-link" href="https://huggingface.co/datasets/pangzihao/DynFrame_Dataset" target="_blank">🤗 Dataset</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DSI-Bench -->
+      <div class="pub-card">
+        <div class="pub-body">
+          <div class="pub-figure-side">
+            <img src="assets/dsi-bench.png" alt="DSI-Bench overview" loading="lazy">
+          </div>
+          <div class="pub-info">
+            <div class="pub-venue">arXiv Preprint, 2025</div>
+            <div class="pub-title">DSI-Bench: A Benchmark for Dynamic Spatial Intelligence</div>
+            <div class="pub-authors">
+              Ziang Zhang<sup>*</sup>, Zehan Wang<sup>*</sup>, <span class="me">Guanghao Zhang<sup>*</sup></span>, Weilong Dai, Yan Xia, Ziang Yan, Minjie Hong, Zhou Zhao
+            </div>
+            <div class="pub-desc">A benchmark with ~1,000 dynamic videos and 1,700+ annotated questions covering nine decoupled motion patterns, designed to evaluate VLMs' reasoning about observer and object motion in dynamic 3D scenarios.</div>
+            <div class="pub-links">
+              <a class="pub-link" href="https://arxiv.org/abs/2510.18873" target="_blank">📄 Paper</a>
+              <a class="pub-link" href="https://dsibench.github.io/" target="_blank">🌐 Project</a>
+              <a class="pub-link" href="https://github.com/SpatialVision/dsibench" target="_blank"><svg class="gh-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> Code</a>
+              <a class="pub-link" href="https://huggingface.co/datasets/Viglong/DSI-Bench" target="_blank">🤗 Dataset</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CMMCoT -->
+      <div class="pub-card">
+        <div class="pub-body">
+          <div class="pub-figure-side">
+            <img src="assets/cmmcot.png" alt="CMMCoT demo" loading="lazy">
+            <img src="assets/cmmcot-method.png" alt="CMMCoT method overview" loading="lazy">
+          </div>
+          <div class="pub-info">
+            <div class="pub-venue">AAAI 2026</div>
+            <div class="pub-title">CMMCoT: Enhancing Complex Multi-Image Comprehension via Multi-Modal Chain-of-Thought and Memory Augmentation</div>
+            <div class="pub-authors">
+              <span class="me">Guanghao Zhang</span>, Tao Zhong, Yan Xia, Mushui Liu, Zhelun Yu, Haoyuan Li, Wanggui He, Fangxun Shu, Dong She, Yi Wang, Hao Jiang
+            </div>
+            <div class="pub-desc">A multi-step reasoning framework for complex multi-image understanding that constructs interleaved multimodal reasoning chains with visual region tokens and incorporates test-time memory augmentation to expand reasoning capacity.</div>
+            <div class="pub-links">
+              <a class="pub-link" href="https://arxiv.org/abs/2503.05255" target="_blank">📄 Paper</a>
+              <a class="pub-link" href="https://github.com/zhangguanghao523/CMMCoT" target="_blank"><svg class="gh-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> Code</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ReKV -->
+      <div class="pub-card">
+        <div class="pub-body">
+          <div class="pub-figure-side">
+            <img src="assets/rekv.png" alt="ReKV pipeline" loading="lazy">
+            <img src="assets/rekv-method.png" alt="ReKV architecture" loading="lazy">
+          </div>
+          <div class="pub-info">
+            <div class="pub-venue">ICLR 2025</div>
+            <div class="pub-title">ReKV: Streaming Video Question-Answering with In-context Video KV-Cache Retrieval</div>
+            <div class="pub-authors">
+              Shangzhe Di, Zhelun Yu, <span class="me">Guanghao Zhang</span>, Haoyuan Li, Tao Zhong, Hao Cheng, Bolin Li, Wanggui He, Fangxun Shu, Hao Jiang
+            </div>
+            <div class="pub-desc">A training-free approach for streaming video QA that stores per-block KV-Cache on CPU and retrieves relevant visual context on-the-fly, enabling continuous video comprehension without reprocessing.</div>
+            <div class="pub-links">
+              <a class="pub-link" href="https://arxiv.org/abs/2503.00540" target="_blank">📄 Paper</a>
+              <a class="pub-link" href="https://github.com/becomebright/rekv" target="_blank"><svg class="gh-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> Code</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LLaVA-MoD -->
+      <div class="pub-card">
+        <div class="pub-body">
+          <div class="pub-figure-side">
+            <img src="assets/llava-mod-fig1.png" alt="LLaVA-MoD overview" loading="lazy">
+            <img src="assets/llava-mod.png" alt="LLaVA-MoD architecture" loading="lazy">
+          </div>
+          <div class="pub-info">
+            <div class="pub-venue">ICLR 2025</div>
+            <div class="pub-title">LLaVA-MoD: Making LLaVA Tiny via MoE Knowledge Distillation</div>
+            <div class="pub-authors">
+              Fangxun Shu, Yue Liao, Le Zhuo, Chenning Xu, Lei Zhang, <span class="me">Guanghao Zhang</span>, Haonan Shi, Long Chen, Tao Zhong, Wanggui He, Siming Fu, Haoyuan Li, Bolin Li, Zhelun Yu, Si Liu, Hongsheng Li, Hao Jiang
+            </div>
+            <div class="pub-desc">A framework that distills a large multimodal LLM into a compact MoE-based student model through sparse expert routing, achieving competitive performance with significantly fewer active parameters.</div>
+            <div class="pub-links">
+              <a class="pub-link" href="https://arxiv.org/abs/2408.15881" target="_blank">📄 Paper</a>
+              <a class="pub-link" href="https://github.com/shufangxun/LLaVA-MoD" target="_blank"><svg class="gh-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> Code</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══ Experience ═══ -->
+    <section class="section">
+      <div class="section-label">Career</div>
+      <h2 class="section-title">Experience</h2>
+      <div class="exp-item">
+        <div class="exp-logo">
+          <img src="assets/alibaba-logo.png" alt="Alibaba Group">
+        </div>
+        <div class="exp-org"><a href="https://www.alibaba.com" target="_blank">Alibaba Group</a></div>
+        <div class="exp-role">Researcher</div>
+        <div class="exp-date">2024.01 – Present</div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-logo">
+          <img src="assets/megvii-logo.png" alt="Megvii Technology">
+        </div>
+        <div class="exp-org"><a href="https://en.megvii.com/" target="_blank">Megvii Technology</a></div>
+        <div class="exp-role">Researcher</div>
+        <div class="exp-date">2022.06 – 2024.01</div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══ Academic Services ═══ -->
+    <section class="section">
+      <div class="section-label">Community</div>
+      <h2 class="section-title">Academic Services</h2>
+      <ul class="service-list">
+        <li>
+          <span class="service-label">Conference Reviewer: </span>
+          <span>ECCV, CVPR, NeurIPS, ICLR, AAAI</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ═══ Footer ═══ -->
+    <footer class="footer">
+      <p>&copy; 2026 Guanghao Zhang · Powered by <a href="https://pages.github.com" target="_blank">GitHub Pages</a></p>
+    </footer>
+
+  </div>
+</body>
+</html>
